@@ -24,12 +24,12 @@ public class ExposicaoController {
     private ExposicaoDAO dao;
 
     @GetMapping("/listar")
-    public List<Exposicao> getPacientes(){
+    public List<Exposicao> getExposicoes(){
         return dao.findAll();
     }
 
     @GetMapping("/listar/{id}")
-    public Exposicao getPaciente(@PathVariable("id") Long id){
+    public Exposicao getExposicao(@PathVariable("id") Long id){
         Exposicao p = null;
 
         if ( dao.existsById(id) ){

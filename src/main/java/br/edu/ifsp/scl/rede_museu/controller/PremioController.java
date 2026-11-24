@@ -23,12 +23,12 @@ public class PremioController {
     private PremioDAO dao;
 
     @GetMapping("/listar")
-    public List<Premio> getPacientes(){
+    public List<Premio> getPremios(){
         return dao.findAll();
     }
 
     @GetMapping("/listar/{id}")
-    public Premio getPaciente(@PathVariable("id") Long id){
+    public Premio getPremio(@PathVariable("id") Long id){
         Premio p = null;
 
         if ( dao.existsById(id) ){

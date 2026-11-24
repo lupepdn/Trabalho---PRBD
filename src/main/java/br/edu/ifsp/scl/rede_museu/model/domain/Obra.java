@@ -1,5 +1,7 @@
 package br.edu.ifsp.scl.rede_museu.model.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -34,12 +36,37 @@ public class Obra{
     
     private Double profundidade;//Nullable, pois não se mede a profundidade de pinturas, por exemplo.
 
-    @ManyToOne
+    /*@ManyToOne
     @JoinColumn(name="id_artista")
+    private Artista artista;*/
+    /*@ManyToOne
+    @JoinColumn(name = "id_artista")
+    @JsonIgnore 
     private Artista artista;
 
-    @ManyToOne
-    @JoinColumn(name = "id_exposicao")
+    public Artista getArtista() {
+        return artista;
+    }
+
+    public void setArtista(Artista artista) {
+        this.artista = artista;
+    }*/
+    
+    
+    @Column(length = 150, nullable = false)
+    private String artista;
+    
+
+    public String getArtista() {
+        return artista;
+    }
+
+    public void setArtista(String artista) {
+        this.artista = artista;
+    }
+
+    @ManyToOne 
+    @JoinColumn (name = "id_exposicao")
     private Exposicao exposicao;
 
     public Long getId() {
@@ -106,21 +133,21 @@ public class Obra{
         this.profundidade = profundidade;
     }
 
-    public Artista getArtista() {
+    /*public Artista getArtista() {
         return artista;
     }
 
     public void setArtista(Artista artista) {
         this.artista = artista;
-    }
+    }*/
 
-    public Exposicao getExposicao() {
+    /*public Exposicao getExposicao() {
         return exposicao;
     }
 
     public void setExposicao(Exposicao exposicao) {
         this.exposicao = exposicao;
-    }
+    }*/
 
 
 }

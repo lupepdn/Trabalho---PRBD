@@ -24,12 +24,18 @@ public class ObraController {
     private ObraDAO dao;
 
     @GetMapping("/listar")
-    public List<Obra> getPacientes(){
+    public List<Obra> getObras(){
+        /*List<Obra> a = dao.findAll();
+        System.out.println(a.size());
+        System.out.println(a.get(0).getTitulo());
+        System.out.println(a.get(0).getArtista().getNome());
+        System.out.println(a.get(1));
+        return null;*/
         return dao.findAll();
     }
 
     @GetMapping("/listar/{id}")
-    public Obra getPaciente(@PathVariable("id") Long id){
+    public Obra getObra(@PathVariable("id") Long id){
         Obra p = null;
 
         if ( dao.existsById(id) ){

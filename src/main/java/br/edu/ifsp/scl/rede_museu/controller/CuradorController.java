@@ -23,12 +23,12 @@ public class CuradorController {
     private CuradorDAO dao;
 
     @GetMapping("/listar")
-    public List<Curador> getPacientes(){
+    public List<Curador> getCuradores(){
         return dao.findAll();
     }
 
     @GetMapping("/listar/{id}")
-    public Curador getPaciente(@PathVariable("id") Long id){
+    public Curador getCurador(@PathVariable("id") Long id){
         Curador p = null;
 
         if ( dao.existsById(id) ){

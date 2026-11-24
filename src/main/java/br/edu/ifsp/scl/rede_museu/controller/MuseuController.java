@@ -23,12 +23,12 @@ public class MuseuController {
     private MuseuDAO dao;
 
     @GetMapping("/listar")
-    public List<Museu> getPacientes(){
+    public List<Museu> getMuseus(){
         return dao.findAll();
     }
 
     @GetMapping("/listar/{id}")
-    public Museu getPaciente(@PathVariable("id") Long id){
+    public Museu getMuseu(@PathVariable("id") Long id){
         Museu p = null;
 
         if ( dao.existsById(id) ){

@@ -6,6 +6,8 @@ import java.util.List;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.format.annotation.DateTimeFormat.ISO;
 
+//import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -44,8 +46,16 @@ public class Exposicao{
     private Museu museu;
 
     /*@OneToMany(mappedBy="exposicao")*///VER ISSO
-    @OneToMany(mappedBy="exposicao")
-    private List<Obra> obra;
+    //@OneToMany(mappedBy="exposicao")
+    //private List<Obra> obras;
+
+    /*public List<Obra> getObras() {
+        return obras;
+    }
+
+    public void setObras(List<Obra> obras) {
+        this.obras = obras;
+    }*/
 
     public Long getId() {
         return id;
